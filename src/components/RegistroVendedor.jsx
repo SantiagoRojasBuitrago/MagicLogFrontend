@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
-
+import axiosInstance from '../api/axiosConfig';
 Modal.setAppElement('#root');
 
 const RegistroVendedor = ({ isOpen, onClose }) => {
@@ -20,7 +20,7 @@ const RegistroVendedor = ({ isOpen, onClose }) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/users/register', {
+      const response = await axios.post('https://magiclogbackend.onrender.com/users/register', {
         email,
         password,
         role: 'vendedor',

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000'; // Cambia si la API está desplegada
+const API_URL = 'https://magiclogbackend.onrender.com/';
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
