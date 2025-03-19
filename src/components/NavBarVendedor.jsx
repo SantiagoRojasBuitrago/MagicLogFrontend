@@ -7,19 +7,19 @@ const NavBarVendedor = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userID");
-    navigate("/login"); // Redirigir al login después de cerrar sesión
+    navigate("/login");
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid"> {/* ✅ Usa container-fluid en vez de container */}
+      <div className="container-fluid"> {}
         
-        {/* Título o Logo */}
+        {}
         <Link className="navbar-brand" to="/dashboard">
           🛍️ Marketplace - Vendedor
         </Link>
 
-        {/* Botón de hamburguesa */}
+        {}
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -32,7 +32,7 @@ const NavBarVendedor = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Contenido del menú */}
+        {}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">

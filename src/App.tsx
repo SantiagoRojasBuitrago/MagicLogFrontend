@@ -5,7 +5,7 @@ import AddProduct from './pages/AddProduct';
 import ProtectedRoute from './routes/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Esto es importante para que el botón de hamburguesa funcione
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
 
 import Register from './pages/Register';
 import Index from './pages/Index';

@@ -26,7 +26,7 @@ const RegistroVendedor = ({ isOpen, onClose }) => {
         role: 'vendedor',
       });
       alert('Registro exitoso');
-      onClose(); // Cerrar modal
+      onClose(); 
       console.log(response);
     } catch (err) {
       if (err.response && err.response.status === 409) {

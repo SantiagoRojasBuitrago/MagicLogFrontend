@@ -8,7 +8,6 @@ const Dashboard = () => {
   const [productos, setProductos] = useState([]);
   const navigate = useNavigate();
 
-  // Obtener token y vendedorID desde localStorage
   const token = localStorage.getItem("token");
   const vendedorID = localStorage.getItem("userID");
 
@@ -32,7 +31,6 @@ const Dashboard = () => {
     fetchProductos();
   }, [navigate, token, vendedorID]);
 
-  // Función para eliminar un producto
   const handleEliminar = async (id) => {
     if (!window.confirm("¿Estás seguro de que quieres eliminar este producto?")) return;
 
@@ -41,7 +39,6 @@ const Dashboard = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      // Actualizar la lista de productos después de eliminar
       setProductos((prevProductos) => prevProductos.filter((producto) => producto._id !== id));
 
       alert("Producto eliminado con éxito");

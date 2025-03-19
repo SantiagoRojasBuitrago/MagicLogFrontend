@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosConfig";
 import { Link } from "react-router-dom";
-import { Modal } from "react-bootstrap"; // Importamos el Modal de React-Bootstrap
+import { Modal } from "react-bootstrap";
 
 const Index = () => {
   const [productos, setProductos] = useState([]);
@@ -12,9 +12,8 @@ const Index = () => {
     precioMax: "",
   });
   const [carrito, setCarrito] = useState([]);
-  const [showCarrito, setShowCarrito] = useState(false); // Estado para mostrar el modal del carrito
+  const [showCarrito, setShowCarrito] = useState(false);
 
-  // Obtener todos los productos
   useEffect(() => {
     const fetchProductos = async () => {
       try {
@@ -28,12 +27,12 @@ const Index = () => {
     fetchProductos();
   }, []);
 
-  // Manejar cambios en los filtros
+  
   const handleFiltroChange = (e) => {
     setFiltros({ ...filtros, [e.target.name]: e.target.value });
   };
 
-  // Filtrar productos según los criterios de búsqueda
+
   const productosFiltrados = productos.filter((producto) => {
     const { nombre, precioMin, precioMax } = filtros;
     const precio = parseFloat(producto.precio);
@@ -41,17 +40,15 @@ const Index = () => {
 
     return (
       (!nombre || producto.nombre.toLowerCase().includes(nombre.toLowerCase())) &&
-      (stockInput === null || producto.stock === stockInput) && // Comparación directa
+      (stockInput === null || producto.stock === stockInput) && 
       (!precioMin || precio >= parseFloat(precioMin)) &&
       (!precioMax || precio <= parseFloat(precioMax))
     );
   });
 
-  // Agregar producto al carrito
   const agregarAlCarrito = (producto) => {
     const productoExistente = carrito.find((item) => item._id === producto._id);
     if (productoExistente) {
-      // Si el producto ya está en el carrito, solo incrementamos la cantidad
       setCarrito(carrito.map((item) =>
         item._id === producto._id ? { ...item, cantidad: item.cantidad + 1 } : item
       ));
@@ -61,15 +58,13 @@ const Index = () => {
     alert(`✅ ${producto.nombre} agregado al carrito`);
   };
 
-  // Eliminar producto del carrito
   const eliminarDelCarrito = (productoId) => {
     setCarrito(carrito.filter((producto) => producto._id !== productoId));
   };
 
-  // Actualizar cantidad de un producto en el carrito
   const actualizarCantidad = (productoId, cantidad) => {
     if (cantidad <= 0) {
-      eliminarDelCarrito(productoId); // Eliminar si la cantidad es 0 o menor
+      eliminarDelCarrito(productoId); 
     } else {
       setCarrito(carrito.map((producto) =>
         producto._id === productoId ? { ...producto, cantidad: cantidad } : producto
@@ -77,7 +72,6 @@ const Index = () => {
     }
   };
 
-  // Mostrar/ocultar el modal del carrito
   const toggleCarrito = () => setShowCarrito(!showCarrito);
 
   return (
@@ -85,7 +79,7 @@ const Index = () => {
       <div className="navbar navbar-dark bg-dark mb-4 px-3 d-flex justify-content-between">
         <span className="navbar-brand text-light">📦 Marketplace</span>
 
-        {/* Icono de carrito */}
+        {}
         <button className="btn btn-outline-light" onClick={toggleCarrito}>
           🛒 Ver Carrito ({carrito.length})
         </button>
@@ -97,7 +91,7 @@ const Index = () => {
 
       <h1 className="text-center mb-4">🛒 Tienda de Productos</h1>
 
-      {/* Filtros de búsqueda */}
+      {}
       <div className="card shadow-sm p-3 mb-4">
         <h3 className="text-center">🔎 Buscar Productos</h3>
         <div className="row">
@@ -144,7 +138,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Lista de productos */}
+      {}
       <div className="card shadow-sm">
         <div className="card-body">
           <h2 className="text-center mb-3">📦 Lista de Productos</h2>
@@ -184,7 +178,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Modal del carrito */}
+      {}
       <Modal show={showCarrito} onHide={toggleCarrito}>
         <Modal.Header closeButton>
           <Modal.Title>🛒 Carrito de Compras</Modal.Title>

@@ -12,15 +12,13 @@ const Login = () => {
     try {
       const response = await axiosInstance.post('/auth/login', { email, password });
 
-      // Guardar token y userID en localStorage
       localStorage.setItem('token', response.data.access_token);
       localStorage.setItem('userID', response.data.user.id);
       console.log(response)
-      // Verificar si el rol es admin
       if (response.data.user.rol === 'admin') {
-        navigate('/dashboardAdmin'); // Redirigir al dashboard de admin si es admin
+        navigate('/dashboardAdmin'); 
       } else {
-        navigate('/dashboard'); // Redirigir a la página de usuario normal
+        navigate('/dashboard'); 
       }
     } catch (error) {
       alert('⚠️ Error al iniciar sesión. Verifica tus credenciales.');
@@ -57,7 +55,7 @@ const Login = () => {
           <button type="submit" className="btn btn-primary w-100">🚀 Iniciar Sesión</button>
         </form>
 
-        {/* Botones de navegación */}
+        {}
         <div className="mt-3 text-center">
           <button className="btn btn-outline-secondary w-100 mb-2" onClick={() => navigate('/')}>
             ⬅️ Volver al Inicio

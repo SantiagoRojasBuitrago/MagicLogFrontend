@@ -7,11 +7,10 @@ const DashboardAdmin = () => {
   const [filtroVendedor, setFiltroVendedor] = useState('');
   const navigate = useNavigate();
 
-  // Función para cerrar sesión
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userID');
-    navigate('/login'); // Redirigir al login después de cerrar sesión
+    navigate('/login'); 
   };
 
   useEffect(() => {
@@ -36,21 +35,21 @@ const DashboardAdmin = () => {
   };
 
   const productosFiltrados = productos.filter((producto) => {
-    const vendedor = producto.vendedor || ''; // Si 'vendedor' es undefined, usar una cadena vacía
+    const vendedor = producto.vendedor || ''; 
     return vendedor.toLowerCase().includes(filtroVendedor.toLowerCase());
   });
 
   return (
     <div>
-      {/* Barra de navegación */}
+      {}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          {/* Título o Logo */}
+          {}
           <Link className="navbar-brand" to="/dashboard">
             🛍️ Marketplace - Admin
           </Link>
 
-          {/* Botón de hamburguesa */}
+          {}
           <button
             className="navbar-toggler"
             type="button"
@@ -63,7 +62,7 @@ const DashboardAdmin = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Contenido del menú */}
+          {}
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
@@ -76,11 +75,11 @@ const DashboardAdmin = () => {
         </div>
       </nav>
 
-      {/* Contenido del Dashboard */}
+      {}
       <div className="container mt-4">
         <h1 className="text-center mb-4">📦 Productos del Marketplace</h1>
 
-        {/* Filtro por vendedor */}
+        {}
         <div className="mb-4">
           <input
             type="text"

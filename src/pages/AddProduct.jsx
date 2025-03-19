@@ -7,9 +7,8 @@ const AddProduct = () => {
   const [stock, setCantidad] = useState('');
   const [precio, setPrecio] = useState('');
 
-  // Obtener token y vendedorID desde localStorage (o estado global)
   const token = localStorage.getItem('token');
-  const vendedorID = localStorage.getItem('userID'); // Asegúrate de guardar esto en el login
+  const vendedorID = localStorage.getItem('userID'); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +25,7 @@ const AddProduct = () => {
         { nombre, descripcion, precio, stock, vendedorID },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Enviar el token en los headers
+            Authorization: `Bearer ${token}`, 
           },
         }
       );
