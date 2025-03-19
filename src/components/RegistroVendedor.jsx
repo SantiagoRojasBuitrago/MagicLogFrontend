@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import axios from 'axios';
 import axiosInstance from '../api/axiosConfig';
+
 Modal.setAppElement('#root');
 
 const RegistroVendedor = ({ isOpen, onClose }) => {
@@ -20,19 +20,18 @@ const RegistroVendedor = ({ isOpen, onClose }) => {
     }
 
     try {
-      const response = await axios.post('https://magiclogbackend.onrender.com/users/register', {
+      const response = await axiosInstance.post('/users/register', {
         email,
         password,
         role: 'vendedor',
       });
       alert('Registro exitoso');
       onClose(); // Cerrar modal
-      console.log(response)
+      console.log(response);
     } catch (err) {
       if (err.response && err.response.status === 409) {
         setError('El usuario ya existe');
-        console.log(err)
-        
+        console.log(err);
       } else {
         setError('Error en el registro');
       }
