@@ -29,7 +29,7 @@ const RegistroVendedor = ({ isOpen, onClose }) => {
       onClose(); // Cerrar modal
       console.log(response)
     } catch (err) {
-      if (err.response && err.response.status == 409) {
+      if (err.response && err.response.status === 409) {
         setError('El usuario ya existe');
         console.log(err)
         

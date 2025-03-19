@@ -35,7 +35,7 @@ const Index = () => {
 
   // Filtrar productos según los criterios de búsqueda
   const productosFiltrados = productos.filter((producto) => {
-    const { nombre, stock, precioMin, precioMax } = filtros;
+    const { nombre, precioMin, precioMax } = filtros;
     const precio = parseFloat(producto.precio);
     const stockInput = filtros.stock.trim() ? parseInt(filtros.stock, 10) : null;
 
